@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import psql_login
 from models import db
+from passlib.hash import pbkdf2_sha256
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = psql_login
