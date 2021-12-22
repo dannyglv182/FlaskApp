@@ -5,6 +5,6 @@
   
 -  Run the application with the following command
 
-``` flask run --host=0.0.0.0``` 
+   ``` flask run --host=0.0.0.0``` 
 
 - Go to localhost:5000/ on the host machine
