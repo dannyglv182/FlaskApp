@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import psql_login
 from models import db
+from models import app_user, blog_post, p_word
 from passlib.hash import pbkdf2_sha256
 
 app = Flask(__name__)
