@@ -11,6 +11,9 @@
 	```	
 
 ## Dependencies
+- **Psycopg2**
+database adapter for Python. 
+
 - **Flask-SQLAlchemy**
 Object Relational Mapper. All SQL tables are defined as Python classes in models.py
 
