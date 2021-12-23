@@ -23,10 +23,12 @@ def sign_up():
         user_name = request.form["username"]
         hash_ = pbkdf2_sha256.hash(request.form["password"])
 
+        # Create and store the new password object
         to_store = p_word(hash_value=hash_)
         db.session.add(to_store)
         db.session.commit()
 
+        # Create and store the new user 
         to_store_2 = app_user(user_name=user_name, password=to_store.id)
         db.session.add(to_store_2)
         db.session.commit()
