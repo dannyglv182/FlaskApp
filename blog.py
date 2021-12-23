@@ -15,11 +15,23 @@ def hello_world():
     return "<p>Hello World!</p>"
 
 
-@app.route("/test", methods=["GET","POST"])
-def test():
+@app.route("/signup", methods=["GET","POST"])
+def sign_up():
     if request.method == "GET":
         return render_template("signup.html")
+    else:
+        user_name = request.form["username"]
+        hash_ = pbkdf2_sha256.hash(request.form["password"])
+
+        to_store = p_word(hash_value=hash_)
+        db.session.add(to_store)
+        db.session.commit()
+
+        to_store_2 = app_user(user_name=user_name, password=to_store.id)
+        db.session.add(to_store_2)
+        db.session.commit()
+        return "Thank you."
 
 
-# app.debug = True
-# app.run(host='0.0.0.0', port=5000)
+app.debug = True
+app.run(host='0.0.0.0', port=5000)
