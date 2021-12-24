@@ -9,7 +9,7 @@
 		<h1> Sign up! </h1>
 		<!-- LOGIN FORM BEGIN -->
 		<div class="d-flex justify-content-center">
-			<form>
+			<form action="{{url_for('sign_up')}}" method="post">
 			  <div class="mb-3">
 			    <label for="username" class="form-label">Desired Username</label>
 			    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
@@ -21,7 +21,7 @@
 			  </div>
 			  <div class="mb-3 form-check">
 			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-			    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+			    <label class="form-check-label" for="exampleCheck1">Agree.</label>
 			  </div>
 			  <button type="submit" class="btn btn-primary">Submit</button>
 			</form>
