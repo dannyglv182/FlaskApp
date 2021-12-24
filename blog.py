@@ -35,5 +35,11 @@ def sign_up():
         return "Thank you."
 
 
+@app.route("/login", methods=["GET","POST"])
+def log_in():
+    if request.method == "GET":
+        return "Thank you for logging in."
+
+
 app.debug = True
 app.run(host='0.0.0.0', port=5000)
