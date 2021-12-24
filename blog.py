@@ -38,7 +38,26 @@ def sign_up():
 @app.route("/login", methods=["GET","POST"])
 def log_in():
     if request.method == "GET":
-        return "Thank you for logging in."
+        return render_template("signup.html")
+    else:
+        try:
+
+            # Gather username and password from the request response
+            user_name = request.form["username"]
+            password = request.form["password"]
+            user_obj = app_user.query.filter_by(user_name=user_name).one()
+            password_obj = p_word.query.filter_by(id=user_obj.password).one()
+
+            # Verify that the password is correct using Passlib
+            hash_comparison = pbkdf2_sha256.verify(password, password_obj.hash_value)            
+        except:
+            return "Exception"
+
+        # hash_comparison is true if the password is correct
+        if hash_comparison == True:
+            return "Thank you for logging in."
+        else:
+            return "Sorry. Try again."
 
 
 app.debug = True
