@@ -77,5 +77,12 @@ def log_in():
             return "Sorry. Try again."
 
 
+@app.route("/posts", methods=["GET", "POST"])
+def posts():
+    if request.method == "GET":
+        return render_template("posts.html")
+    return "Thank you."
+
+
 app.debug = True
 app.run(host='0.0.0.0', port=5000)
