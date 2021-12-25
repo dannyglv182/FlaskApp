@@ -4,6 +4,7 @@ from config import psql_login
 from models import db
 from models import app_user, blog_post, p_word
 from passlib.hash import pbkdf2_sha256
+from db_functions import insert_new_password, insert_new_user
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = psql_login
@@ -23,15 +24,12 @@ def sign_up():
         user_name = request.form["username"]
         hash_ = pbkdf2_sha256.hash(request.form["password"])
 
-        # Create and store the new password object
-        to_store = p_word(hash_value=hash_)
-        db.session.add(to_store)
-        db.session.commit()
+        # Insert the new password object and store it in password_to_store
+        password_to_store = insert_new_password(hash_) 
 
-        # Create and store the new user 
-        to_store_2 = app_user(user_name=user_name, password=to_store.id)
-        db.session.add(to_store_2)
-        db.session.commit()
+
+        # Insert the new user
+        user_to_store = insert_new_user(user_name, password_to_store.id) 
         return "Thank you."
 
 
