@@ -41,6 +41,14 @@ def sign_up():
 
 @app.route("/login", methods=["GET","POST"])
 def log_in():
+    """ GET and POST for logging in.
+
+    GET request renders the sign up template
+
+    POST request uses passlib to verify the inputted password with the hash
+    value stored in the database. If pbkdf2_sha256.verify() returns true, the
+    user is logged in.
+    """
     if request.method == "GET":
         return render_template("signup.html")
     else:
