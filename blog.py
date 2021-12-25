@@ -18,6 +18,13 @@ def hello_world():
 
 @app.route("/signup", methods=["GET","POST"])
 def sign_up():
+    """ GET and POST for signing up.
+
+    GET request renders the sign up template
+
+    POST request inserts the new user and password's hash value into 
+    the database.
+    """
     if request.method == "GET":
         return render_template("signup.html")
     else:
@@ -26,7 +33,6 @@ def sign_up():
 
         # Insert the new password object and store it in password_to_store
         password_to_store = insert_new_password(hash_) 
-
 
         # Insert the new user
         user_to_store = insert_new_user(user_name, password_to_store.id) 
