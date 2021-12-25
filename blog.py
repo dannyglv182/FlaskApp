@@ -5,6 +5,7 @@ from models import db
 from models import app_user, blog_post, p_word
 from passlib.hash import pbkdf2_sha256
 from db_functions import insert_new_password, insert_new_user
+from db_functions import username_exists
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = psql_login
@@ -30,6 +31,10 @@ def sign_up():
     else:
         user_name = request.form["username"]
         hash_ = pbkdf2_sha256.hash(request.form["password"])
+
+        # Check if the username already exists and return instead of moving on
+        if username_exists(user_name) == True:
+            return "Sorry that username is taken."
 
         # Insert the new password object and store it in password_to_store
         password_to_store = insert_new_password(hash_) 

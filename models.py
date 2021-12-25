@@ -4,7 +4,10 @@ db = SQLAlchemy()
 class app_user(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(32), nullable=False)
-    password = db.Column(db.Integer, db.ForeignKey("p_word.id"), nullable=False)
+    password = db.Column(db.Integer, 
+                         db.ForeignKey("p_word.id"),
+                         unique=True,
+                         nullable=False)
 
 
 class blog_post(db.Model):
