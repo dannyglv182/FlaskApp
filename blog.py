@@ -87,18 +87,25 @@ def posts():
     
     GET request renders the posts template and passess the blog posts to the 
     template
+
+    POST request inserts the new blog post into the database.
     """
     if request.method == "GET":
-        posts = blog_post.query.all()
-        return render_template("posts.html", posts=posts)
+        try:
+            user_id = login_session['user_id']
+            posts = blog_post.query.all()
+            return render_template("posts.html", posts=posts)
+        except:
+            return "Sorry there has been an error."
 
-    # Get user and blog post data from the request 
-    user_id = 5;
+    # POST 
+    # Gather blog post data from the request 
+    user_id = login_session['user_id']
     to_post = request.form["blogPost"]
 
     # insert the new post
     insert_new_post(user_id, to_post)
-    return "Thank you."
+    return "Thank you for posting."
 
 
 app.debug = True
