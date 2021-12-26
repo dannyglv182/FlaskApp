@@ -72,14 +72,14 @@ def log_in():
         # Verify that the password is correct using Passlib
         hash_comparison = pbkdf2_sha256.verify(password, password_obj.hash_value)            
     except:
-        return "Exception"
+        return redirect(url_for('log_in'))
 
     # hash_comparison is true if the password is correct. Log the user in.
     if hash_comparison == True:
         login_session['user_id'] = user_obj.id
         return redirect(url_for('posts'))
     else:
-        return "Sorry. Try again."
+        return redirect(url_for('log_in'))
 
 
 @app.route("/posts", methods=["GET", "POST"])
