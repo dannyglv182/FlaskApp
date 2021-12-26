@@ -5,7 +5,7 @@ from models import db
 from models import app_user, blog_post, p_word
 from passlib.hash import pbkdf2_sha256
 from db_functions import insert_new_password, insert_new_user
-from db_functions import username_exists
+from db_functions import username_exists, insert_new_post
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = psql_login
@@ -79,8 +79,21 @@ def log_in():
 
 @app.route("/posts", methods=["GET", "POST"])
 def posts():
+    """ GET and POST for blog posts.
+    
+    GET request renders the posts template and passess the blog posts to the 
+    template
+    """
     if request.method == "GET":
-        return render_template("posts.html")
+        posts = blog_post.query.all()
+        return render_template("posts.html", posts=posts)
+
+    # Get user and blog post data from the request 
+    user_id = 5;
+    to_post = request.form["blogPost"]
+
+    # insert the new post
+    insert_new_post(user_id, to_post)
     return "Thank you."
 
 

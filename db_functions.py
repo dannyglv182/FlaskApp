@@ -29,3 +29,14 @@ def username_exists(user_name_string):
     except:
         return False
 
+
+def insert_new_post(poster_id, text):
+    """ Inserts a new blog post """
+    try:
+        to_store = blog_post(poster_id=poster_id, text=text)
+        db.session.add(to_store)
+        db.session.commit()
+        return True
+    except:
+        return False
+
