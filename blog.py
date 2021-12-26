@@ -94,7 +94,7 @@ def posts():
     if request.method == "GET":
         try:
             user_id = login_session['user_id']
-            posts = blog_post.query.all()
+            posts = db.session.query(blog_post, app_user).filter(app_user.id == blog_post.poster_id).all()
             return render_template("posts.html", posts=posts)
         except:
             return "Sorry there has been an error."
