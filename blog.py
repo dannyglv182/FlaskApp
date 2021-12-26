@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Flask, render_template, url_for, request, redirect
 from flask import session as login_session
 from flask_sqlalchemy import SQLAlchemy
@@ -104,7 +105,8 @@ def posts():
     to_post = request.form["blogPost"]
 
     # insert the new post
-    insert_new_post(user_id, to_post)
+    date_string = datetime.now().strftime("%m/%d/%Y %H:%M")
+    insert_new_post(user_id, to_post, date_string)
     return "Thank you for posting."
 
 

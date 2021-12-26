@@ -30,10 +30,10 @@ def username_exists(user_name_string):
         return False
 
 
-def insert_new_post(poster_id, text):
+def insert_new_post(poster_id, text, date_string):
     """ Inserts a new blog post """
     try:
-        to_store = blog_post(poster_id=poster_id, text=text)
+        to_store = blog_post(poster_id=poster_id, text=text, date=date_string)
         db.session.add(to_store)
         db.session.commit()
         return True

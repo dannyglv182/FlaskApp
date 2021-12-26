@@ -14,6 +14,7 @@ class blog_post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     poster_id = db.Column(db.Integer, db.ForeignKey("app_user.id"), nullable=False)
     text = db.Column(db.String(140), nullable=False)
+    date = db.Column(db.String(140), nullable=False)
 
 
 class p_word(db.Model):
