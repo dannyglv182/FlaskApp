@@ -14,12 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = psql_login
 app.secret_key = secret_key
 db.init_app(app)
 
-
 @app.route("/")
-def hello_world():
-    return "<p>Hello World!</p>"
-
-
 @app.route("/signup", methods=["GET","POST"])
 def sign_up():
     """ GET and POST for signing up.
