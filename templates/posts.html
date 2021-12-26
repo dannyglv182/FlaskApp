@@ -6,12 +6,12 @@
 	</head>
 	<body>
 
-		<div class="container">
+		<div class="container border border-secondary">
 
-			<h1> Fun Blog </h1>
+			<h1 class="d-flex justify-content-center"> Fun Blog </h1>
 
 			<!-- Area for submitting a new post START -->
-			<form action="{{url_for('posts')}}" method="POST">
+			<form class="mb-3" action="{{url_for('posts')}}" method="POST">
 				<div class="input-group ">
 				  <span class="input-group-text">Say Something!</span>
 				  <textarea class="form-control" name="blogPost" aria-label=""></textarea>
