@@ -31,20 +31,20 @@ def sign_up():
     """
     if request.method == "GET":
         return render_template("signup.html")
-    else:
-        user_name = request.form["username"]
-        hash_ = pbkdf2_sha256.hash(request.form["password"])
 
-        # Check if the username already exists and return instead of moving on
-        if username_exists(user_name) == True:
-            return "Sorry that username is taken."
+    user_name = request.form["username"]
+    hash_ = pbkdf2_sha256.hash(request.form["password"])
 
-        # Insert the new password object and store it in password_to_store
-        password_to_store = insert_new_password(hash_) 
+    # Check if the username already exists and return instead of moving on
+    if username_exists(user_name) == True:
+        return "Sorry that username is taken."
 
-        # Insert the new user
-        user_to_store = insert_new_user(user_name, password_to_store.id) 
-        return "Thank you."
+    # Insert the new password object and store it in password_to_store
+    password_to_store = insert_new_password(hash_) 
+
+    # Insert the new user
+    user_to_store = insert_new_user(user_name, password_to_store.id) 
+    return "Thank you."
 
 
 @app.route("/login", methods=["GET","POST"])
@@ -77,7 +77,7 @@ def log_in():
     # hash_comparison is true if the password is correct. Log the user in.
     if hash_comparison == True:
         login_session['user_id'] = user_obj.id
-        return "Thank you for logging in."
+        return redirect(url_for('posts'))
     else:
         return "Sorry. Try again."
 
