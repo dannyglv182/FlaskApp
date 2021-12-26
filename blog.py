@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
+from flask import session
 from flask_sqlalchemy import SQLAlchemy
-from config import psql_login
+from config import psql_login, secret_key
 from models import db
 from models import app_user, blog_post, p_word
 from passlib.hash import pbkdf2_sha256
@@ -9,6 +10,7 @@ from db_functions import username_exists, insert_new_post
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = psql_login
+app.secret_key = secret_key
 db.init_app(app)
 
 
