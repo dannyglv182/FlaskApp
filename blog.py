@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask import Flask, render_template, url_for, request, redirect
-from flask import session as login_session
+from flask import session as login_session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from config import psql_login, secret_key
 from models import db
@@ -27,6 +27,7 @@ def sign_up():
     if request.method == "GET":
         return render_template("signup.html")
 
+    # POST
     user_name = request.form["username"]
     hash_ = pbkdf2_sha256.hash(request.form["password"])
 
@@ -55,7 +56,7 @@ def log_in():
     if request.method == "GET":
         return render_template("signup.html")
 
-    # Request is a Post request
+    # POST
     try:
 
         # Gather username and password from the request response
@@ -104,6 +105,26 @@ def posts():
     insert_new_post(user_id, to_post, date_string)
     return "Thank you for posting."
 
+
+@app.route("/addpost", methods=["POST"])
+def add_post():
+    """ POST for adding a blog post.
+
+    A JSON object containing the user's username, the blog text, and the date
+    is returned so that the post can appear asynchronously when the user hits
+    the post button on the blog page.
+    """
+    # Gather blog post data from the request 
+    user_id = login_session['user_id']
+    user_obj = app_user.query.filter_by(id=user_id).one()
+    new_post = request.form["blogPost"]
+    date_string = datetime.now().strftime("%m/%d/%Y %H:%M")
+    insert_new_post(user_id, new_post, date_string)
+    return jsonify(
+            username=user_obj.user_name,
+            post=new_post, 
+            date=date_string
+            )
 
 app.debug = True
 app.run(host='0.0.0.0', port=5000)
