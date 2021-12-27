@@ -19,3 +19,9 @@ Object Relational Mapper. All SQL tables are defined as Python classes in models
 
 - **Passlib**
 Password Hashing Library. Passwords are hashed and salted using Passlib's hash method.
+
+- **Boostrap 5**
+Frameork used to style and organize the templates.
+
+- **jQuery**
+Posts appear asynchronously on the blog page by using the ajax method.  
