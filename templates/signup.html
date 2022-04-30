@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-		crossorigin="anonymous">	
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+		crossorigin="anonymous">
+		<link href="./signup.css" rel="stylesheet">
 	</head>
 	<body>
+		<div class=" container d-flex justify-content-center align-items-center">
+			<!-- Sign up FORM BEGIN -->
+				<form class="mx-auto" action="{{url_for('sign_up')}}" method="post">
+					<h1 class="text-center"> Sign up! </h1>
 
+				  <div class="row mb-3">
+						<div id="label_username" class="col-12">
+				    	<label for="username" class="form-label">Desired Username</label>
+						</div>
 
-		<!-- LOGIN FORM BEGIN -->
-		<h1 class="d-flex justify-content-center"> Log in </h1>
-		<div class="d-flex justify-content-center">
-			<form action="{{url_for('log_in')}}" method="post">
-			  <div class="mb-3">
-			    <label for="username" class="form-label">Username</label>
-			    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
-			    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-			  </div>
-			  <div class="mb-3">
-			    <label for="password" class="form-label">Password</label>
-			    <input type="password" class="form-control" id="password" name="password">
-			  </div>
-			  <button type="submit" class="btn btn-primary">Log in </button>
-			</form>
+						<div id="" class="col-12">
+				    	<input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+					  </div>
+				  </div>
+
+				  <div class="row mb-3">
+						<div class="col-12">
+				      <label for="password" class="form-label">Password</label>
+					  </div>
+						<div class="col-12">
+				      <input type="password" class="col-12 form-control" id="password" name="password">
+					  </div>
+				  </div>
+
+				  <div class="row mb-3">
+						<div class="col-12">
+				    	<input type="checkbox" class="form-check-input" id="exampleCheck1">
+						</div>
+						<div class="col-12">
+				    	<label class="form-check-label" for="exampleCheck1">Agree.</label>
+						</div>
+				  </div>
+
+					<div class="row mb-3">
+						<div class="col-12">
+							<button type="submit" class="btn btn-primary">Sign up!</button>
+						</div>
+						<div class="col-12">
+							<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+						</div>
+					</div>
+				</form>
+			<!-- Sign up FORM END -->
 		</div>
-		<!-- LOGIN FORM END -->
 
-
-		<!-- Sign up FORM BEGIN -->
-		<h1 class="d-flex justify-content-center"> Sign up! </h1>
-		<div class="d-flex justify-content-center">
-			<form action="{{url_for('sign_up')}}" method="post">
-			  <div class="mb-3">
-			    <label for="username" class="form-label">Desired Username</label>
-			    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
-			    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-			  </div>
-			  <div class="mb-3">
-			    <label for="password" class="form-label">Password</label>
-			    <input type="password" class="form-control" id="password" name="password">
-			  </div>
-			  <div class="mb-3 form-check">
-			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-			    <label class="form-check-label" for="exampleCheck1">Agree.</label>
-			  </div>
-			  <button type="submit" class="btn btn-primary">Sign up!</button>
-			</form>
-		</div>
-		<!-- Sign up FORM END -->
-
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
 	</body>
 </html>

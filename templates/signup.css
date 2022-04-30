@@ -1,0 +1,13 @@
+form {
+  background-color: white;
+  padding: 2%;
+  width: 35%;
+}
+
+body {
+  background-color: lightgray;
+}
+
+.container {
+  height: 97vh;
+}
