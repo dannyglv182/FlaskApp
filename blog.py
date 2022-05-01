@@ -40,7 +40,7 @@ def sign_up():
 
     # Insert the new user
     user_to_store = insert_new_user(user_name, password_to_store.id) 
-    return "Thank you."
+    return redirect(url_for('log_in'))
 
 
 @app.route("/login", methods=["GET","POST"])
@@ -54,7 +54,7 @@ def log_in():
     user is logged in.
     """
     if request.method == "GET":
-        return render_template("signup.html")
+        return render_template("login.html")
 
     # POST
     try:
