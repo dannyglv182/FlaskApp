@@ -1,14 +1,13 @@
 # Flask Blog Application
 ## How to run on a Ubunutu VM created using Vagrant 
- - **Set port forwarding in the vagrantfile** <br>
-  config.vm.network "forwarded_port", guest: 80, host: 8080   
-  config.vm.network "forwarded_port", guest: 5000, host: 5000
+1. Set port forwarding in the vagrantfile <br>
+   config.vm.network "forwarded_port", guest: 80, host: 8080   
+   config.vm.network "forwarded_port", guest: 5000, host: 5000
+
+2. run db_setup.py
   
-- **Use the following commands**
-	```
-	export flask_app=blog 
-	flask run --host=0.0.0.0
-	```	
+3. run blog.py
+
 
 ## Dependencies
 - **Psycopg2**
