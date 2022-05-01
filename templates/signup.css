@@ -1,7 +1,7 @@
 form {
   background-color: white;
   padding: 2%;
-  width: 35%;
+  width: 95%;
 }
 
 body {
@@ -10,4 +10,8 @@ body {
 
 .container {
   height: 97vh;
+}
+
+#page_title {
+  text-align: center;
 }
