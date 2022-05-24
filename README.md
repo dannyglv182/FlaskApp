@@ -2,7 +2,7 @@
 
 This is a blog page application with a login system 
 
-## How to run on a Ubunutu VM created using Vagrant 
+## How to run 
 1. run db_setup.py
 2. run blog.py
 
