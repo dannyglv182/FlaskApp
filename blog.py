@@ -35,7 +35,8 @@ def sign_up():
     if username_exists(user_name) == True:
         return "Sorry that username is taken."
 
-    # Insert the new password object and store it in password_to_store
+    # Insert the new password into the db and store it as an object 
+    # in the variable password_to_store
     password_to_store = insert_new_password(hash_) 
 
     # Insert the new user
