@@ -121,11 +121,14 @@ def add_post():
     new_post = request.form["blogPost"]
     date_string = datetime.now().strftime("%m/%d/%Y %H:%M")
     insert_new_post(user_id, new_post, date_string)
+
+    # Return a JSON with the username, blog text and date
     return jsonify(
             username=user_obj.user_name,
             post=new_post, 
             date=date_string
             )
+
 
 app.debug = True
 app.run(host='0.0.0.0', port=5000)
