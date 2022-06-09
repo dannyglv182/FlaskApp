@@ -1,6 +1,8 @@
 # Flask Blog Application
 
-This is a blog page application with a login system 
+This is a blog page application with a login system.
+Posts created by users are stored in a PostgreSQL database and API endpoints
+are created to work with data from the client.
 
 ## How to run 
 1. run db_setup.py
@@ -21,4 +23,4 @@ Password Hashing Library. Passwords are hashed and salted using Passlib's hash m
 Frameork used to style and organize the templates.
 
 - **jQuery**
-Posts appear asynchronously on the blog page by using the ajax method.  
+Posts appear asynchronously on the blog page by using the ajax method and JSON.  
