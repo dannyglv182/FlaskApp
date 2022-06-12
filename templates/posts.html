@@ -8,18 +8,16 @@
 	<body>
 		<div class="container p-3 mt-4 border border-secondary">
 			<h1 class="text-center"> Fun Blog </h1>
-
-			<!-- Area for submitting a new post STARTS HERE -->
 				<div class="row mb-2">
 					<div class="input-group col-12">
-					  <span class="input-group-text">Say Something!</span>
-					  <textarea class="form-control" name="blogPost" id="blogPost" aria-label=""></textarea>
+						<span class="input-group-text">Say Something!</span>
+					  	<textarea class="form-control" name="blogPost" id="blogPost"></textarea>
 					</div>
 				</div>
 
 				<div class="row mb-3">
 					<div class="col-12">
-			  		<button type="submit" id="submitButton" class="btn btn-primary">Post</button>
+			  			<button type="submit" id="submitButton" class="btn btn-primary">Post</button>
 					</div>
 				</div>
 			<script>
@@ -41,11 +39,10 @@
 				});
 
 			</script>
-			<!-- Area for submitting a new post ENDS HERE -->
 
 
 			<!-- Display all posts START -->
-			<div name="allPosts" id="allPosts">
+			<div class="row" name="allPosts" id="allPosts">
 				{% for post, user in posts %}
 					<div class="blogPost bg-light text-dark">
 						<p id="postText">
