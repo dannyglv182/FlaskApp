@@ -30,7 +30,7 @@
 						data: {blogPost: blogPost},
 						success: function(data, status, xhr){
 							console.log(data)
-							$("#allPosts").prepend("<div class='blogPost bg-light text-dark'><p>" +
+							$("#allPosts").prepend("<div class='blogPost bg-light text-dark mb-2'><p>" +
 								blogPost + "<br> Posted on: " +
 								data.date + "<br> by: " +
 								data.username + "</p> </div>")
@@ -44,7 +44,7 @@
 			<!-- Display all posts START -->
 			<div class="row" name="allPosts" id="allPosts">
 				{% for post, user in posts %}
-					<div class="blogPost bg-light text-dark">
+					<div class="blogPost bg-light text-dark mb-2">
 						<p id="postText">
 						    {{post.text}}
 						    <br>
