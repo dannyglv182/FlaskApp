@@ -13,7 +13,7 @@ Link for how to install Flask https://flask.palletsprojects.com/en/3.0.x/install
 4. Change the string in database_setup.py so that it connects to the database you created
 5. execute python3 db_setup.py to add the tables to the database.
 6. run blog.py (make sure port forwarding is set so host machine can access guest port 5000)
-7. Visit localhost:<forwarded port> on host machine
+7. Visit localhost:forwarded port on host machine
 
 
 
