@@ -13,7 +13,7 @@ Link for how to install Flask https://flask.palletsprojects.com/en/3.0.x/install
 4. Change the string in database_setup.py so that it connects to the database you created
 5. execute python3 db_setup.py to add the tables to the database.
 6. run blog.py (make sure port forwarding is set so host machine can access guest port 5000)
-7. Visit localhost:forwarded port on host machine
+7. Visit localhost:forwardedPort on host machine
 
 
 
@@ -28,7 +28,7 @@ Object Relational Mapper. All SQL tables are defined as Python classes in models
 Password Hashing Library. Passwords are hashed and salted using Passlib's hash method.
 
 - **Boostrap 5**
-Frameork used to style and organize the templates.
+Framework used to style and organize the templates.
 
 - **jQuery**
 Posts appear asynchronously on the blog page by using the ajax method and JSON.  
