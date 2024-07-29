@@ -5,7 +5,7 @@ Posts created by users are stored in a PostgreSQL database and API endpoints
 are created to work with data from the client.
 
 ## How to run 
-## Link for how to install Flask https://flask.palletsprojects.com/en/3.0.x/installation/
+Link for how to install Flask https://flask.palletsprojects.com/en/3.0.x/installation/
 ## STEPS TO INSTALL DEPENDENCIES AND GET THE BLOG RUNNING
 1. Enter virtual environment  . .venv/bin/activate
 2. From within the venv, run install.sh to install dependencies
